@@ -4,7 +4,7 @@ class Singlenton {
 	private function __construct () {
 		echo "Instance of class created";
 	}
-	public getInstance() {
+	public static function getInstance() {
 		if (self::$instance === null) {
 			self::$instance = new static();
 		}
@@ -18,5 +18,5 @@ class Singlenton {
 }
 
 
-$single = Singlenton();
-echo "Value of class instance " . $single::getInstance();
+$single = Singlenton::getInstance();
+echo "Value of class instance " . serialize($single);
